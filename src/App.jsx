@@ -1,13 +1,13 @@
+import Navbar from "./Components/Navbar"
+import Hero from "./Sections/Hero"
 
 
 function App() {
 
-
   return (
     <>
-    
-      <h1 className="text-indigo-600">Vite + React</h1>
-      
+      <Navbar/>
+      <Hero/>
     </>
   )
 }
