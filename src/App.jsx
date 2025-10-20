@@ -14,6 +14,7 @@ function App() {
       <Navbar/>
       <Hero/>
       <Texts/>
+      <div className="min-h-dvh z-50 overflow-hidden relative bg-red"></div>
     </>
   )
 }

@@ -44,7 +44,7 @@ const Hero = () => {
         heroTl.to('.hero-container', {
             rotate: 8,
             scale: 0.85,
-            yPercent:30,
+            yPercent:32,
             ease: 'power1.inOut'
         })
 
