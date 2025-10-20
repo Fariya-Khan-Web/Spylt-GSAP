@@ -2,6 +2,7 @@ import { ScrollTrigger } from "gsap/all"
 import Navbar from "./Components/Navbar"
 import Hero from "./Sections/Hero"
 import gsap from "gsap"
+import Texts from "./Sections/Texts"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -12,7 +13,7 @@ function App() {
     <>
       <Navbar/>
       <Hero/>
-      <div className="min-h-dvh z-20 bg-red"></div>
+      <Texts/>
     </>
   )
 }
