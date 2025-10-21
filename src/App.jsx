@@ -13,7 +13,7 @@ function App() {
 
   useGSAP(() => {
     ScrollSmoother.create({
-      smooth: 2,
+      smooth: 3,
       effects: true,
     })
   })

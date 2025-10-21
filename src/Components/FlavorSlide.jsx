@@ -20,7 +20,6 @@ const FlavorSlide = () => {
                 end:`+=${scrollAmount + 1550}px`,
                 scrub: true,
                 pin: true,
-                markers: true,
             }
         })
 

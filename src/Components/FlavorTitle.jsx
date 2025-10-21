@@ -39,6 +39,30 @@ const FlavorTitle = () => {
                 yPercent: 20,
                 stagger: 0.05,
             })
+
+
+        const titleSTL = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.flavor-section',
+                start: 'top top',
+                scrub: true,
+
+            }
+        })
+
+        titleSTL
+            .to('.first-text-split', {
+                x: -60,
+                ease: 'power1.inOut'
+            })
+            .to('.flavor-text-scroll', {
+                x: -90,
+                ease: 'power1.inOut'
+            },'<')
+            .to('.second-text-split', {
+                x: -50,
+                ease: 'power1.inOut'
+            },'<')
     })
 
 
