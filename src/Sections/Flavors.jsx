@@ -1,12 +1,21 @@
 import React from 'react';
+import FlavorTitle from '../Components/FlavorTitle';
+import FlavorSlide from '../Components/FlavorSlide';
 
 const Flavors = () => {
     return (
         <section className='flavor-section'>
-            <div>
-                
+            <div className='h-full flex flex-col md:flex-row items-center relative'>
+                <div className='lg:w-[57%] flex-none h-80 lg:h-full md:mt-20 xl:mt-0'>
+                    <FlavorTitle />
+                </div>
+
+
+                {/* slide */}
+                <div className='h-full'>
+                    <FlavorSlide />
+                </div>
             </div>
-            
         </section>
     );
 };
