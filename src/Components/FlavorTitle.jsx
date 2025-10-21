@@ -19,7 +19,6 @@ const FlavorTitle = () => {
                 trigger: '.flavor-section',
                 start: 'top 35%',
                 end: 'top 5%',
-                markers: true,
                 scrub: true,
             }
         })
