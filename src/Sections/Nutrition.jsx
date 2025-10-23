@@ -43,7 +43,6 @@ const Nutrition = () => {
                 end: 'top 5%',
                 duration: 1,
                 scrub: true,
-                markers: true,
             }
         })
 
