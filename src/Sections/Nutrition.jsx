@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { nutrientLists } from '../../Constants';
 import { useMediaQuery } from 'react-responsive';
+import { useGSAP } from '@gsap/react';
+import { SplitText } from 'gsap/all';
+import gsap from 'gsap';
 
 const Nutrition = () => {
 
@@ -24,6 +27,50 @@ const Nutrition = () => {
     }, [isMobile])
 
 
+    useGSAP(() => {
+
+        const splitTitle = SplitText.create('.nutrition-title', {
+            type: 'chars'
+        })
+        const splitpara = SplitText.create('.parag', {
+            type: 'words'
+        })
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.nutrition-section',
+                start: 'top 50%',
+                end: 'top 5%',
+                duration: 1,
+                scrub: true,
+                markers: true,
+            }
+        })
+
+        tl
+            .from(splitTitle.chars, {
+                opacity: 0,
+                stagger: 0.09,
+                yPercent: 200,
+                ease: 'power1.inOut'
+            })
+            .from(splitpara.words, {
+                opacity: 0,
+                stagger: 0.09,
+                yPercent: 50,
+                ease: 'power1.inOut'
+            }, '<')
+            .to('.nutrition-text-scroll',
+                {
+                    opacity: 1,
+                    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                    ease: 'power1.inOut',
+                    duration: 2
+                })
+
+    }, [])
+
+
     return (
         <section className='nutrition-section'>
             <img src="/images/slider-dip.png" alt="" className='object-cover w-full' />
@@ -42,9 +89,9 @@ const Nutrition = () => {
 
 
                         <div
-                            // style={{
-                            //     // clipPath: 'polygon(25% 0%, 25% 0, 0 100%, 0% 100%)',
-                            // }}
+                            style={{
+                                clipPath: 'polygon(0 0, 0 0, 1% 100%, 1% 100%)',
+                            }}
                             className='nutrition-text-scroll place-self-start'>
                             <div className='bg-mid-brown text-milk-yellow p-2 pb-4 md:p-3 md:pb-6'>
                                 <h1>body good</h1>
@@ -55,7 +102,7 @@ const Nutrition = () => {
                 </div>
 
 
-                <div className="flex md:justify-center items-center translate-y-5">
+                <div className="parag flex md:justify-center items-center translate-y-5">
                     <div className="md:max-w-xs max-w-md">
                         <p className="text-lg md:text-right text-balance font-paragraph">
                             Milk contains a wide array of nutrients, including vitamins,
