@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { nutrientLists } from '../../Constants';
+import { useMediaQuery } from 'react-responsive';
 
 const Nutrition = () => {
+
+    const [list, setList] = useState(nutrientLists)
+
+
+    const isMobile = useMediaQuery({
+        query: '(max-width: 768px)'
+    })
+
+    useEffect(() => {
+
+        if (isMobile) {
+            const newlist = nutrientLists.slice(0, 3)
+            setList(newlist)
+        }
+        else {
+            setList(nutrientLists)
+        }
+
+    }, [isMobile])
+
+
     return (
         <section className='nutrition-section'>
             <img src="/images/slider-dip.png" alt="" className='object-cover w-full' />
@@ -20,11 +42,13 @@ const Nutrition = () => {
 
 
                         <div
-                            style={{
-                                clipPath: '',
-                            }}
-                            className='overflow-hidden place-self-start'>
-                            <h1 className='nutrition-text-scroll'>body good</h1>
+                            // style={{
+                            //     // clipPath: 'polygon(25% 0%, 25% 0, 0 100%, 0% 100%)',
+                            // }}
+                            className='nutrition-text-scroll place-self-start'>
+                            <div className='bg-mid-brown text-milk-yellow p-2 pb-4 md:p-3 md:pb-6'>
+                                <h1>body good</h1>
+                            </div>
                         </div>
 
                     </div>
@@ -45,11 +69,11 @@ const Nutrition = () => {
                     <div className='list-wrapper'>
 
                         {
-                            nutrientLists.map(({ label, amount }, idx) => (
-                                <p key={idx} className='flex flex-col px-16 text-center'>
-                                    <p>{label}</p>
-                                    Up to
-                                    <p>{amount}</p>
+                            list.map(({ label, amount }, idx) => (
+                                <p key={idx} className={`flex flex-col overflow-hidden px-8 lg:px-20 ${idx !== list.length - 1 && 'border-r'}`}>
+                                    <p className='md:text-xl font-paragraph'>{label}</p>
+                                    <p className='mt-2 md:mt-3 font-paragraph'>up to</p>
+                                    <p className='md:text-3xl font-bold'>{amount}</p>
                                 </p>
                             ))
                         }
