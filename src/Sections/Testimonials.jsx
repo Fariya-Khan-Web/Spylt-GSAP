@@ -2,14 +2,21 @@ import React, { useRef } from 'react';
 import { cards } from '../../Constants';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useMediaQuery } from 'react-responsive';
 
 const Testimonials = () => {
 
+    const isMobile = useMediaQuery({
+        query: '(max-width: 767px)'
+    })
+
     useGSAP(() => {
 
-        gsap.set('.testimonials-section', {
-            marginTop: '-150vh'
-        })
+        if (!isMobile) {
+            gsap.set('.testimonials-section', {
+                marginTop: '-150vh'
+            })
+        }
 
 
         const jumpinTL = gsap.timeline({
@@ -29,7 +36,7 @@ const Testimonials = () => {
         })
 
         textTL
-            .to('.first-title', {
+            .to('.fst-title', {
                 xPercent: 50,
                 yPercent: 20
             })
@@ -37,7 +44,7 @@ const Testimonials = () => {
                 xPercent: 20,
                 yPercent: 20
             }, '<')
-            .to('.third-title', {
+            .to('.trd-title', {
                 xPercent: -50,
                 yPercent: 20
             }, '<')
@@ -52,7 +59,7 @@ const Testimonials = () => {
             ease: 'power1.out'
         })
 
-    }, [])
+    }, [isMobile])
 
 
     const videoRef = useRef([])
@@ -69,9 +76,9 @@ const Testimonials = () => {
     return (
         <section className='testimonials-section'>
             <div className='title-div absolute size-full flex flex-col items-center pt-[2vw]'>
-                <h1 className='first-title'>WHAT'S</h1>
+                <h1 className='fst-title'>WHAT'S</h1>
                 <h1 className='text-light-brown sec-title'>EVERYONE</h1>
-                <h1 className='third-title mb-40'>TALKING</h1>
+                <h1 className='trd-title mb-40'>TALKING</h1>
             </div>
 
 
