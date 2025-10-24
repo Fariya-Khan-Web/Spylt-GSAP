@@ -2,8 +2,13 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/all';
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const Hero = () => {
+
+    const isTablet = useMediaQuery({
+        query: "(max-width: 1024px)",
+    });
 
     useGSAP(() => {
         const titleSplit = SplitText.create('.hero-title', {
@@ -26,7 +31,7 @@ const Hero = () => {
                 ease: 'circ.out'
             })
             .from(titleSplit.chars, {
-                yPercent: 100,
+                yPercent: 200,
                 stagger: 0.02,
                 ease: 'power1.inOut',
             })
@@ -44,7 +49,7 @@ const Hero = () => {
         heroTl.to('.hero-container', {
             rotate: 8,
             scale: 0.85,
-            yPercent:32,
+            yPercent: 32,
             ease: 'power1.inOut'
         })
 
@@ -54,11 +59,28 @@ const Hero = () => {
     return (
         <section className='bg-main-bg'>
             <div className='hero-container'>
-                <img
-                    src="/images/static-img.png"
-                    alt="static-img"
-                    className='absolute bottom-0 left-1/2 -translate-x-1/2 object-auto '
-                />
+
+                {
+                    isTablet ?
+                        <>
+                            <img
+                                src="/images/static-img.png"
+                                alt="static-img"
+                                className='absolute inset-0 h-full w-full object-cover left-1/2 -translate-x-1/2 object-auto'
+                            />
+
+                            <img
+                                src="/images/hero-img.png"
+                                alt="static-img"
+                                className='absolute bottom-0 left-1/2 -translate-x-1/2 object-auto'
+                            />
+                        </>
+                        :
+                        <video src='/videos/hero-bg.mp4'
+                            playsInline muted autoPlay
+                            className='absolute inset-0 w-full h-full object-cover' />
+                }
+
                 <div className="hero-content opacity-0">
                     <div className='overflow-hidden'>
                         <h1 className="hero-title">Freaking Delicious</h1>
