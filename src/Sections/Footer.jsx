@@ -1,6 +1,23 @@
-import React from 'react';
+import { useGSAP } from '@gsap/react';
+import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const Footer = () => {
+
+    const [mobile, setMobile] = useState(false);
+
+    const isMobile = useMediaQuery({
+        query: '(max-width: 767px)'
+    })
+
+    useEffect(() => {
+        setMobile(isMobile)
+    }, [isMobile])
+
+    useGSAP(() => {
+
+    })
+
     return (
         <footer className='footer-section'>
             <img src="/images/footer-dip.png" alt="" className='object-cover w-full -translate-y-1' />
@@ -12,11 +29,14 @@ const Footer = () => {
                     </h1>
                 </div>
 
-
-                <video src="/videos/splash.mp4" playsInline muted autoPlay className='absolute inset-0 w-full object-contain mix-blend-lighten z-20' />
+                {
+                    mobile ?
+                        <img src='/images/footer-drink.png' alt='splash image' className='absolute inset-0 w-full object-contain'/>
+                        : <video src="/videos/splash.mp4" playsInline muted autoPlay className='absolute inset-0 w-full object-contain mix-blend-lighten z-20' />
+                }
 
                 <div className='flex-center py-18 gap-6'>
-                    <div className='social-btn '>
+                    <div className='social-btn'>
                         <img src="/images/yt.svg" alt="yt" />
                     </div>
                     <div className='social-btn '>
@@ -49,7 +69,7 @@ const Footer = () => {
                     <div className='space-y-5 lg:space-y-10 pt-16 lg:pt-0 mx-[5vw] md:w-[80vh] lg:w-[50vh] lg:mx-4'>
                         <p className='font-paragraph text-base md:text-xl'>Get Exclusive Early Access and Stay Informed About Product Updates, Events, and More!</p>
                         <div className='relative'>
-                            <input type="text" placeholder='Enter your email' />
+                            <input type="email" placeholder='Enter your email' />
                             <img src="/images/arrow.svg" alt="enter" className='absolute right-0 top-0 translate-y-1/2' />
                         </div>
                     </div>
