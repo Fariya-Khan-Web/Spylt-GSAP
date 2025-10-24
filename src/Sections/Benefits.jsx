@@ -87,7 +87,7 @@ const Benefits = () => {
                 </div>
             </div>
 
-            <div className='relative overlay-box'>
+            <div className='relative'>
                 <VideoPin/>
             </div>
         </section>
