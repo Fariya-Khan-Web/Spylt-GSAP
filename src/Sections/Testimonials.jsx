@@ -55,7 +55,7 @@ const Testimonials = () => {
         jumpinTL.from('.pin-box div', {
             yPercent: 200,
             stagger: 3.5,
-            duration: 5,
+            duration: 15,
             ease: 'power1.out'
         })
 
@@ -91,7 +91,8 @@ const Testimonials = () => {
                         >
                             <video
                                 ref={(el) => (videoRef.current[idx] = el)}
-                                src={src} muted playsInline loop />
+                                src={src} muted playsInline loop
+                            />
                             <div className='absolute flex bottom-5 left-5 items-center gap-3'>
                                 <img src={img} alt="profile" />
                                 <h4 className='uppercase text-white font-semibold text-xl'>{name}</h4>
