@@ -55,7 +55,7 @@ const Testimonials = () => {
         jumpinTL.from('.pin-box div', {
             yPercent: 200,
             stagger: isMobile ? 14 : 3.5,
-            duration: isMobile ? 30 : 10,
+            duration: isMobile ? 60 : 10,
             ease: 'power1.out'
         })
 
