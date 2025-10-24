@@ -22,7 +22,7 @@ const Testimonials = () => {
         const jumpinTL = gsap.timeline({
             scrollTrigger: {
                 trigger: '.testimonials-section',
-                start: 'top -39%',
+                start: isMobile? "top -50%":'top -39%',
                 scrub: true,
                 pin: true,
             }
@@ -54,8 +54,8 @@ const Testimonials = () => {
 
         jumpinTL.from('.pin-box div', {
             yPercent: 200,
-            stagger: 3.5,
-            duration: 15,
+            stagger: isMobile ? 14 : 3.5,
+            duration: isMobile ? 30 : 10,
             ease: 'power1.out'
         })
 
