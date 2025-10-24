@@ -15,7 +15,7 @@ const Testimonials = () => {
         const jumpinTL = gsap.timeline({
             scrollTrigger: {
                 trigger: '.testimonials-section',
-                start: 'top -20%',
+                start: 'top -39%',
                 scrub: true,
                 pin: true,
             }
@@ -42,12 +42,13 @@ const Testimonials = () => {
                 yPercent: 20
             }, '<')
             .to('.title-div', {
-                yPercent: 15
+                yPercent: 8
             }, '-=0.5')
 
         jumpinTL.from('.pin-box div', {
             yPercent: 200,
-            stagger: 2.5,
+            stagger: 3.5,
+            duration: 5,
             ease: 'power1.out'
         })
 
@@ -70,7 +71,7 @@ const Testimonials = () => {
             <div className='title-div absolute size-full flex flex-col items-center pt-[2vw]'>
                 <h1 className='first-title'>WHAT'S</h1>
                 <h1 className='text-light-brown sec-title'>EVERYONE</h1>
-                <h1 className='third-title'>TALKING</h1>
+                <h1 className='third-title mb-40'>TALKING</h1>
             </div>
 
 
@@ -92,11 +93,6 @@ const Testimonials = () => {
                     ))
                 }
             </div>
-
-            <img src="/images/slider-dip.png" alt="" className='object-cover w-full' />
-            <div>
-            </div>
-
 
         </section>
     );
