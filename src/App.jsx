@@ -34,7 +34,7 @@ function App() {
             <Benefits />
             <Testimonials />
           </div>
-          <div className="min-h-dvh z-50 overflow-hidden relative bg-red"></div>
+          <div className="min-h-dvh z-50 overflow-hidden relative bg-re"></div>
         </div>
       </div>
     </>
