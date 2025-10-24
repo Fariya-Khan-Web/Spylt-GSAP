@@ -29,9 +29,11 @@ function App() {
           <Hero />
           <Texts />
           <Flavors />
-          <Nutrition/>
-          <Benefits/>
-          <Testimonials/>
+          <Nutrition />
+          <div className="bg-milk">
+            <Benefits />
+            <Testimonials />
+          </div>
           <div className="min-h-dvh z-50 overflow-hidden relative bg-red"></div>
         </div>
       </div>
